@@ -2,7 +2,9 @@
 
 Jogo de fazenda 2D em pixel art, para jogar **no navegador**, em **tela cheia** ou numa **janelinha flutuante no
 canto da tela**, durante o expediente, com os colegas de trabalho (ambiente de tribunal). Projeto irmão:
-[HappyKingdom](../HappyKingdom) (RTS).
+[HappyKingdom](../HappyKingdom) (RTS), publicado como [AOK](https://github.com/vtrandrews/AOK).
+
+**Repositório:** <https://github.com/vtrandrews/HappyFarm> (branch `main`).
 
 - **Referências:** Stardew Valley, Colheita Feliz / Fazenda Feliz (crescimento em tempo real, visitar vizinhos),
   Minecraft/Terraria (exploração e construção), Poker (saloon futuro).
@@ -49,11 +51,24 @@ npm run build  # typecheck + dist/
 - Teclado: use `keyCode(e)` de `input.ts`. Em VDI/automação o `e.code` pode vir vazio.
 - Tooltips e textos devem caber na janelinha. Sempre testar em ~600×470 **e** ~420×320.
 - Ao traçar caminhos, **não** voltar ao centro do tile atual (isso causava o "vai e volta"). Veja `walkTo`.
+- **`Painter.line` arredonda as pontas de propósito:** o laço só terminava na igualdade exata, então coordenada
+  fracionária congelava o navegador. Aconteceu de verdade no HappyKingdom; aqui a função foi blindada antes de
+  algum chamador cair nessa. Se escrever outro traçador de pixel, lembre disto.
 - **Testes no painel do navegador do Claude:** com o painel oculto, o `requestAnimationFrame` para. Avance chamando
   `game.update(dt)` pelo console (`window.game` existe em dev). Teclas enviadas pela automação chegam com
   `key` vazio; pra testar atalhos, dispare `KeyboardEvent` manualmente.
 
 ## Estado atual (pré-alpha v0.0.1)
 
-Veja [ROADMAP.md](ROADMAP.md). **Revisão de arte em andamento:** [docs/ARTE.md](docs/ARTE.md), com plano e checkboxes. A
-seção "Onde parei" diz o próximo passo; atualize-a ao terminar cada item. Ainda não há commits no git; o usuário decide quando.
+Veja [ROADMAP.md](ROADMAP.md). **Revisão de arte em andamento:** [docs/ARTE.md](docs/ARTE.md), com plano e checkboxes.
+A seção "Onde parei" diz o próximo passo; atualize-a ao terminar cada item. **A arte aqui está atrás do irmão:** só a
+auditoria foi feita, a Fase A ainda não começou.
+
+O projeto já está publicado, então mudança nova vira commit — mas **só quando o usuário pedir**.
+
+### Vale espiar no irmão
+
+O [HappyKingdom](../HappyKingdom) passou por uma revisão de arte completa e extraiu uma base reutilizável em
+`src/base/` (pixel art, ruído de terreno, isométrico, entrada, janelinha PiP, storage, rede em lockstep e um começo
+3D). Boa parte do que a Fase A daqui precisa já foi resolvida lá — leia `docs/ARTE.md` e `docs/PIXEL-ART.md` do
+HappyKingdom antes de reinventar.

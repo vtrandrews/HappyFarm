@@ -58,7 +58,14 @@ caixas e a seção "Onde parei" no fim deste arquivo.
 
 ## Onde parei
 
-- **Sessão 2026-09-21:** auditoria feita. Próximo passo: **A1 → A2**, depois B, C, D.
+- **Sessão 2026-09-21:** auditoria feita. Nenhum item do plano começou ainda.
+- **Sessão 2026-09-22:** `Painter.line` blindada (arredonda as pontas) — o laço só terminava na igualdade
+  exata e coordenada fracionária congelava o navegador, o que já aconteceu no HappyKingdom. Projeto
+  publicado em <https://github.com/vtrandrews/HappyFarm>.
+- **Próximo passo: A1 → A2**, depois B, C, D.
+- **Atalho:** o [HappyKingdom](../../HappyKingdom/docs/ARTE.md) já fechou as fases A–E com a mesma direção de
+  arte (contorno, sombra projetada, chão em `ImageData` com manchas e transições). Leia o `docs/PIXEL-ART.md`
+  de lá antes de começar — boa parte do A1/A2 é o mesmo problema, já resolvido.
 
 ## Como revisar
 
